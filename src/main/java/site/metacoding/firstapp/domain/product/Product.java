@@ -6,11 +6,32 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
+// @Setter
 public class Product {
     private Integer productId;
     private String productName;
     private Integer productPrice;
     private Integer productQty;
     private Timestamp createdAt;
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
+    private Product() {
+
+    }
+
+    public Product(String productName, Integer productPrice, Integer productQty) {
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productQty = productQty;
+    }
+
+    public void update(Product product) { // 수정할때 필요한 데이터만 열어줌.
+
+        this.productName = product.getProductName();
+        this.productPrice = product.getProductPrice();
+        this.productQty = product.getProductQty();
+    }
 }
